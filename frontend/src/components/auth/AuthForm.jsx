@@ -1,10 +1,10 @@
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
 import { useAuth } from "../../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
-export const AuthForm = ({ title, actionFunction }) => {
+export const AuthForm = ({ title, actionFunction, navigateTo }) => {
   const { formData, setFormData, setIsLoggedIn } = useAuth();
   const navigate = useNavigate();
 
@@ -29,7 +29,7 @@ export const AuthForm = ({ title, actionFunction }) => {
 
     actionFunction();
     setIsLoggedIn(true);
-    navigate("/");
+    navigate(navigateTo);
 
     } catch (error) {
       toast.error(error);

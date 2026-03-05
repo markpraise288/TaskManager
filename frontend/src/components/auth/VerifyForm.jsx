@@ -7,13 +7,13 @@ import { useNavigate } from "react-router-dom";
 
 export const VerifyForm = () => {
     const [ code, setCode ] = useState("");
-    const { setIsLoggedIn } = useAuth();
+    const { setIsLoggedIn, formData } = useAuth();
     const navigate = useNavigate();
 
     const sendCodeRequest = async()=> {
         try{
 
-            const res = await sendCode(code);
+            const res = await sendCode(code, formData.email);
 
             alert(res);
 

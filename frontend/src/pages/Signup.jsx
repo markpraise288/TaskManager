@@ -1,12 +1,11 @@
 import { AuthForm } from "../components/auth/AuthForm";
 import { signup } from "../services/authServices";
 import { useAuth } from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 export const Signup = () => {
   const { formData, setAccessToken } = useAuth();
-  const navigate = useNavigate();
+  const navigateTo = '/verify';
 
   const signupRequest = async () => {
     try {
@@ -15,14 +14,13 @@ export const Signup = () => {
       const accessToken = res;
 
       setAccessToken(accessToken);
-      navigate('/verify');
     } catch (err) {
       toast.error(err.message);
     }
   };
   return (
     <div className="w-full flex items-center flex-col">
-      <AuthForm title={"Signup"} actionFunction={signupRequest} />
+      <AuthForm title={"Signup"} actionFunction={signupRequest} navigateTo={navigateTo}/>
     </div>
   );
 };

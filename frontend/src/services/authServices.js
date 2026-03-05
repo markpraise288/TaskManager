@@ -1,6 +1,5 @@
 export const login = async (formData) => {
   try {
-    console.log(formData)
     const res = await fetch("http://localhost:5000/login", {
       method: "POST",
       credentials: "include",
@@ -10,7 +9,7 @@ export const login = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const { data } = await res.json();
+    const data = await res.json();
 
     const { accessToken } = data.data;
 
@@ -22,7 +21,7 @@ export const login = async (formData) => {
 
 export const signup = async (formData) => {
   try {
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch("http://localhost:5000/signup", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -31,7 +30,7 @@ export const signup = async (formData) => {
       body: JSON.stringify(formData),
     });
 
-    const { data } = await res.json();
+    const data = await res.json();
 
     const { accessToken } = data.data;
 
@@ -51,26 +50,29 @@ export const logout = async () => {
       },
     });
 
-    const { message } = res.json;
+    const data = await res.json();
 
-    return message;
+    return data.message;
   } catch (err) {
     throw new Error(err.message);
   }
 };
 
-export const sendCode = async (code) => {
+export const sendCode = async (code, email) => {
   try {
     const res = await fetch("http://localhost:5000/verify", {
       method: "POST",
       credentials: "include",
-      body: JSON.stringify({ code: code }),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ code: code, email: email }),
     });
 
-    const { message } = await res.json();
+    const data = await res.json();
 
-    console.log(message);
-    return res;
+    console.log(data.message);
+    return data.message;
   } catch (err) {
     throw new Error(err.message);
   }
