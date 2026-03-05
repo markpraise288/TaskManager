@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "https://task-manager-five-pi-17.vercel.app",
+    origin: "https://task-manager-cr90wejek-markpraise288s-projects.vercel.app",
     credentials: true
 }));
 
