@@ -5,6 +5,7 @@ import { useState } from "react";
 export const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const API_URL = process.meta.env.VITE_API_URL;
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,7 +16,7 @@ const AuthProvider = ({ children }) => {
 
   const refreshAccessToken = async (accessToken) => {
     try {
-      const res = await fetch("http://localhost:5000/accessToken", {
+      const res = await fetch(`${API_URL}/accessToken`, {
         method: "GET",
         credentials: "include",
       });
