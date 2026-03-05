@@ -1,6 +1,7 @@
+const API_URL = import.meta.env.VITE_API_URL;
 export const login = async (formData) => {
   try {
-    const res = await fetch("http://localhost:5000/login", {
+    const res = await fetch(`${API_URL}/login`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -21,7 +22,7 @@ export const login = async (formData) => {
 
 export const signup = async (formData) => {
   try {
-    const res = await fetch("http://localhost:5000/signup", {
+    const res = await fetch(`${API_URL}/signup`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -42,7 +43,7 @@ export const signup = async (formData) => {
 
 export const logout = async () => {
   try {
-    const res = await fetch("http://localhost:5000/logout", {
+    const res = await fetch(`${API_URL}/logout`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -60,7 +61,7 @@ export const logout = async () => {
 
 export const sendCode = async (code, email) => {
   try {
-    const res = await fetch("http://localhost:5000/verify", {
+    const res = await fetch(`${API_URL}/verify`, {
       method: "POST",
       credentials: "include",
       headers: {
