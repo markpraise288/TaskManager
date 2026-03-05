@@ -18,10 +18,10 @@ const AuthProvider = ({ children }) => {
     try {
       const res = await fetch(`${API_URL}/accessToken`, {
         method: "GET",
+        credentials: "include",
         headers: {
           "Content-Type": "application/json"
-        },
-        credentials: "include",
+        }
       });
 
       if (!res.ok) {
