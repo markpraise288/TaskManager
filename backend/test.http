@@ -1,0 +1,104 @@
+###
+
+# Signup------------------------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/signup
+Content-Type: application/json
+
+{
+    "email": "malungapraise08@gmail.com",
+    "password": "654321"
+}
+
+###
+
+
+# Verify Email----------------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/verify
+Content-Type: application/json
+
+{
+    "email": "malungapraise08@gmail.com",
+    "code": "730772"
+}
+
+###
+
+
+# Create task--------------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTBkMTY0M2QwY2Q4MTJhNjBhMjllNCIsImlhdCI6MTc3MjIzMTY5NCwiZXhwIjoxNzcyMjMyNTk0fQ.-RcC_6A0aZLsC7XYdxifZmufi0t6l54_1hXEC7yO9RY
+
+{
+    "task": "Go to work"
+}
+
+# Edit task--------------------------------------------------------------------------------------------------------------------------
+###S
+
+PATCH http://localhost:5000/tasks/69a184cf9794b9c83bca2e7d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTBkMTY0M2QwY2Q4MTJhNjBhMjllNCIsImlhdCI6MTc3MjIzNDI4MCwiZXhwIjoxNzcyMjM1MTgwfQ.VNwBbRCHDrnwSbEUU0RY6hsPOWjPWi6zQR4TNdUT_uM
+
+{
+    "completed": "true"
+}
+
+
+###
+
+
+# Delete task--------------------------------------------------------------------------------------------------------------------------
+
+
+DELETE http://localhost:5000/tasks/69a183df4256d1b8fa55c859
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTBkMTY0M2QwY2Q4MTJhNjBhMjllNCIsImlhdCI6MTc3MjE5NDAxNSwiZXhwIjoxNzcyMTk0OTE1fQ.VcXRpi7alDpaklSaVPahu2Td8cWL0Q0bQhNxtYnsRYI
+
+###
+
+
+# Login-----------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "malungapraise08@gmail.com",
+    "password": "654321"
+}
+
+###
+
+
+# Logout-----------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/logout
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OWUyNjY2NmU1MDY2ZGZmOGIxMDQzMiIsImVtYWlsIjoibWFsdW5nYXByYWlzZUBnbWFpbC5jb20iLCJpYXQiOjE3NzE5NzIxOTgsImV4cCI6MTc3MTk3MzA5OH0.NJgc2ocbz9bbFNCG5-DF5_deXaW60G5CVj-rQWshm38"
+}
+
+
+###
+
+
+# Get access token---------------------------------------------------------------------------------------------------------------------
+
+
+POST http://localhost:5000/accessToken
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTBkMTY0M2QwY2Q4MTJhNjBhMjllNCIsImVtYWlsIjoibWFsdW5nYXByYWlzZTA4QGdtYWlsLmNvbSIsImlhdCI6MTc3MjE5OTIyMSwiZXhwIjoxNzcyMjAwMTIxfQ.TE6tA2oMznLIe_Q0hwOtRtA7wfDb2oAO2nyjdpCqqtA"
+}
+
+###
