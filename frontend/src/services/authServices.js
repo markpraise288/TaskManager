@@ -1,17 +1,19 @@
-import { apiFetch } from "./apiFetch";
-
 export const login = async (formData) => {
   try {
-    const res = await apiFetch("/login", {
+    console.log(formData)
+    const res = await fetch("http://localhost:5000/login", {
       method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(formData),
     });
 
-    const { data } = res;
+    const { data } = await res.json();
 
-    const { accessToken } = data;
+    const { accessToken } = data.data;
 
-    localStorage.setItem("accessToken", accessToken);
     return accessToken;
   } catch (err) {
     throw new Error(err.message);
@@ -20,14 +22,18 @@ export const login = async (formData) => {
 
 export const signup = async (formData) => {
   try {
-    const res = await apiFetch("/signup", {
+    const res = await fetch("http://localhost:5000/login", {
       method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(formData),
     });
 
-    const { data } = res;
+    const { data } = await res.json();
 
-    const { accessToken } = data;
+    const { accessToken } = data.data;
 
     return accessToken;
   } catch (err) {
@@ -37,11 +43,15 @@ export const signup = async (formData) => {
 
 export const logout = async () => {
   try {
-    const res = await apiFetch("/logout", {
+    const res = await fetch("http://localhost:5000/logout", {
       method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      },
     });
 
-    const { message } = res;
+    const { message } = res.json;
 
     return message;
   } catch (err) {
@@ -51,12 +61,15 @@ export const logout = async () => {
 
 export const sendCode = async (code) => {
   try {
-    const res = await apiFetch("/verify", {
+    const res = await fetch("http://localhost:5000/verify", {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify({ code: code }),
     });
 
-    console.log(res);
+    const { message } = await res.json();
+
+    console.log(message);
     return res;
   } catch (err) {
     throw new Error(err.message);
