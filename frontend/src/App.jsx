@@ -3,7 +3,7 @@ import { Login } from "./pages/Login";
 import { Tasks } from "./pages/Tasks";
 import { NavBar } from "./components/layout/NavBar";
 import { Signup } from "./pages/Signup";
-import { Verify } from "./pages/verify";
+import { Verify } from "./pages/Verify";
 import { Toaster } from "react-hot-toast";
 
 function App() {
