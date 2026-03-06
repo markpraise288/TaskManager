@@ -18,6 +18,5 @@ const logoutSchema = joi.object({
 module.exports = {
     signupSchema,
     loginSchema,
-    verifySchema,
     logoutSchema
 }
