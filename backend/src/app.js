@@ -7,11 +7,6 @@ const { errorMiddleware } = require('./middlewares/error.middleware');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-
-app.use(express.json());
-
-app.use(cookieParser());
-
 app.use(cors({
     origin: [
         process.env.FRONTEND_URL,
@@ -19,6 +14,8 @@ app.use(cors({
         ],
     credentials: true
 }));
+app.use(express.json());
+app.use(cookieParser());
 
 app.use(logger);
 app.use(authRouter);
