@@ -56,29 +56,6 @@ const login = async ({ email, password }) => {
   return { accessToken, refreshToken };
 };
 
-const verifyEmail = async ({ email, code }) => {
-  const user = await User.findOne({ email });
-
-  if (!user) {
-    const error = new Error("User not Found");
-    error.statusCode = 400;
-    throw error;
-  }
-
-  const isMatch = await bcrypt.compare(code, user.verificationCode);
-
-  if (!isMatch) {
-    const error = new Error("Invalid verification code");
-    error.status = 400;
-    throw error;
-  }
-
-  user.isVerified = true;
-  await user.save();
-
-  return "Email Verified";
-};
-
 const logout = async ({ refreshToken }) => {
   const user = await User.findOne({ refreshToken });
 
