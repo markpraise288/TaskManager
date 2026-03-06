@@ -28,28 +28,6 @@ const signup = async ({ email, password }, next) => {
   user.refreshToken = refreshToken;
   await user.save();
 
-  let code = "";
-
-  for (let i = 0; i < 6; i++) {
-    const randomNum = Math.floor(Math.random() * 10);
-    code += randomNum;
-  }
-
-  const hashedCode = await bcrypt.hash(code, 10);
-
-  user.verificationCode = hashedCode;
-  await user.save();
-
-  await transporter.sendMail({
-    to: user.email,
-    subject: "Verify Email",
-    html: `
-    <h2>Verify Your Email</h2>
-    <p>Enter the code given below</p>
-    <p>${code}</P>
-    `,
-  });
-
   return { accessToken, refreshToken };
 };
 
