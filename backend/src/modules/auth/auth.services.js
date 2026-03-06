@@ -87,7 +87,6 @@ const refreshAccessToken = async ({ refreshToken }) => {
 
 module.exports = {
   signup,
-  verifyEmail,
   refreshAccessToken,
   login,
   logout,
