@@ -11,11 +11,6 @@ const loginSchema = joi.object({
     password: joi.string().min(6).max(12).required()
 })
 
-const verifySchema = joi.object({
-    email: joi.string().email().required(),
-    code: joi.string().required()
-})
-
 const logoutSchema = joi.object({
     refreshToken: joi.string().required()
 });
