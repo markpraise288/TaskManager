@@ -27,7 +27,6 @@ const signup = async ({ email, password }, next) => {
 
   user.refreshToken = refreshToken;
   await user.save();
-
   return { accessToken, refreshToken };
 };
 
