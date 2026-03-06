@@ -58,7 +58,6 @@ const refreshAccessTokenHandler = asyncHandler(async (req, res) => {
 
 module.exports = {
   signupHandler,
-  verifyEmailHandler,
   loginHandler,
   logoutHandler,
   refreshAccessTokenHandler,
