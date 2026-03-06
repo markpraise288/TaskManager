@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 
 export const Signup = () => {
   const { formData, setAccessToken } = useAuth();
-  const navigateTo = '/verify';
+  const navigateTo = '/';
 
   const signupRequest = async () => {
     try {
