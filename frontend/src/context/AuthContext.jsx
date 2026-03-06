@@ -14,14 +14,11 @@ const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [accessToken, setAccessToken] = useState("");
 
-  const refreshAccessToken = async (accessToken) => {
+  const refreshAccessToken = async () => {
     try {
       const res = await fetch(`${API_URL}/accessToken`, {
         method: "GET",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json"
-        }
+        credentials: "include"
       });
 
       if (!res.ok) {
@@ -44,7 +41,7 @@ const AuthProvider = ({ children }) => {
   const getAccessToken = () => accessToken;
 
   useEffect(()=>{
-    refreshAccessToken(accessToken);
+    refreshAccessToken();
   },[])
 
   return (
