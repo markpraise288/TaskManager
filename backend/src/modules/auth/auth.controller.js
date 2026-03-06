@@ -43,7 +43,7 @@ const loginHandler = asyncHandler(async (req, res) => {
 
 const logoutHandler = asyncHandler(async (req, res) => {
   const refreshToken = req.cookies.refreshToken;
-
+  console.log(refreshToken);
   const response = await logout({ refreshToken: refreshToken});
 
   res.clearCookie("refreshToken");
