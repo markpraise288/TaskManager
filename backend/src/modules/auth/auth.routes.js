@@ -1,5 +1,5 @@
 const express = require('express');
-const { signupSchema, loginSchema, verifySchema, logoutSchema } = require('../../modules/auth/auth.validate');
+const { signupSchema, loginSchema, logoutSchema } = require('../../modules/auth/auth.validate');
 const { signupHandler, loginHandler, logoutHandler, refreshAccessTokenHandler } = require('./auth.controller');
 const router = express.Router();
 const authMiddleware = require('../../middlewares/auth.middleware');
