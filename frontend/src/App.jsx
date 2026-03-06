@@ -3,7 +3,6 @@ import { Login } from "./pages/Login";
 import { Tasks } from "./pages/Tasks";
 import { NavBar } from "./components/layout/NavBar";
 import { Signup } from "./pages/Signup";
-import { Verify } from "./pages/Verify";
 import { Toaster } from "react-hot-toast";
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
             <Route path="/" element={<Tasks />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/verify" element={<Verify />} />
           </Routes>
         </div>
       </BrowserRouter>
