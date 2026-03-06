@@ -53,7 +53,7 @@ export const TasksList = () => {
     {error === "Please provide token" ? (
       <p className='text-red-500'>Refresh the page or login</p>
       ) : (
-      {error && <p className='text-red-500'>{error}</p>}
+      error && <p className='text-red-500'>{error}</p>
       )}
     {tasks.length !== 0 && (
         tasks.map((task) => (
