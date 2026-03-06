@@ -31,7 +31,7 @@ const loginHandler = asyncHandler(async (req, res) => {
   res.cookie("refreshToken", response.refreshToken, {
     httpOnly: true,
     secure: true, // true in production (HTTPS)
-    sameSite: "lax",
+    sameSite: "strict",
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
   res
