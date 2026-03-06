@@ -16,14 +16,6 @@ const signupHandler = asyncHandler(async (req, res) => {
   res.status(201).json(new ApiResponse(true, "Account Created", response));
 });
 
-const verifyEmailHandler = asyncHandler(async (req, res) => {
-  const { email, code } = req.body;
-
-  const response = await verifyEmail({ email, code });
-
-  res.status(200).json(new ApiResponse(true, response));
-});
-
 const loginHandler = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const response = await login({ email, password });
