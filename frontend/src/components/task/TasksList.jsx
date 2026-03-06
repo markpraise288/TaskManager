@@ -50,7 +50,11 @@ export const TasksList = () => {
   return (
     <ul className="flex flex-col gap-2">
     {isLoading && <p className='opacity-80'>Loading.....</p>}
-    {error && <p className='text-red-500'>{error}</p>}
+    {error === "Please provide token" ? (
+      <p className='text-red-500'>Refresh the page or login</p>
+      ) : (
+      {error && <p className='text-red-500'>{error}</p>}
+      )}
     {tasks.length !== 0 && (
         tasks.map((task) => (
           <TaskCard
