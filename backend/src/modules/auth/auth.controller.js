@@ -13,6 +13,13 @@ const signupHandler = asyncHandler(async (req, res) => {
 
   const response = await signup({ email, password });
 
+  res.cookie("refreshToken", response.refreshToken, {
+    httpOnly: true,
+    secure: true, // true in production (HTTPS)
+    sameSite: "none",
+    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+  });
+
   res.status(201).json(new ApiResponse(true, "Account Created", response));
 });
 
