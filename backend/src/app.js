@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin: "https://task-manager-esi5v1fh3-markpraise288s-projects.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true
 }));
 
